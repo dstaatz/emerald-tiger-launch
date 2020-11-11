@@ -51,7 +51,7 @@
 
     <!-- SLAM mapping -->
     <node pkg="slam_toolbox" type="sync_slam_toolbox_node" name="slam_toolbox" output="screen">
-        <rosparam command="load" file="./mapper_params.yaml" />
+        <rosparam command="load" file="./mapping_params.yaml" />
     </node>
 
     <!-- Manually start tiger-car-ros on raspberry pi -->
