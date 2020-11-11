@@ -1,0 +1,32 @@
+<!-- Copyright (C) 2020 Dylan Staatz - All Rights Reserved. -->
+
+<launch>
+
+    <arg name="imu_serial_port" default="/dev/ttyUSB0"/>
+    <arg name="lidar_serial_port" default="/dev/USB1"/>
+
+    <machine name="dylan-pi3" address="dylan-pi3" env-loader="/home/dstaatz/Code/emerald-tiger/emerald-tiger-launch/robot/setup_pi_ws.sh"/>
+
+    <!-- Reading imu data from bno055 through serial -->
+    <node machine="dylan-pi3" pkg="ros_imu_bno055" type="imu_ros.py" name="ros_imu_bno055_node" output="screen">
+        <param name="serial_port" value="$(arg imu_serial_port)"/>
+        <param name="frame_id" value="imu"/>
+        <param name="operation_mode" value="IMU"/>
+        <param name="oscillator" value="EXTERNAL"/>
+        <param name="reset_orientation" value = "true"/>
+        <param name="frequency" value="50"/>
+        <param name="use_magnetometer" value="false"/>    
+        <param name="use_temperature" value="false"/>    
+    </node>
+
+    <!-- Lidar scanner driver -->
+    <node machine="dylan-pi3" name="rplidarNode"  pkg="rplidar_ros"  type="rplidarNode"  output="screen">
+        <param name="serial_port"           type="string"   value="$(arg lidar_serial_port)"/>
+        <param name="serial_baudrate"       type="int"      value="115200"/><!--A1/A2 -->
+        <!--param name="serial_baudrate"    type="int"      value="256000"--><!--A3 -->
+        <param name="frame_id"              type="string"   value="laser"/>
+        <param name="inverted"              type="bool"     value="false"/>
+        <param name="angle_compensate"      type="bool"     value="true"/>
+    </node>
+
+</launch>
