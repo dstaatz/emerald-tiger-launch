@@ -1,6 +1,6 @@
 <!-- Copyright (C) 2020 Dylan Staatz - All Rights Reserved. -->
 
-</launch>
+<launch>
 
     <arg name="imu_serial_port" default="/dev/ttyUSB0"/>
     <arg name="lidar_serial_port" default="/dev/rplidar"/>
