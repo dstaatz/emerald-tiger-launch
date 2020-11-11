@@ -4,7 +4,7 @@
 
     <arg name="lidar_serial_port" default="/dev/rplidar"/>
     
-    <machine name="dylan-pi3" address="dylan-pi3" env-loader="./setup_pi_ws.sh"/>
+    <machine name="dylan-pi3" address="dylan-pi3" env-loader="/home/dstaatz/Code/emerald-tiger/emerald-tiger-launch/robot/setup_pi_ws.sh"/>
 
     <!-- Lidar scanner driver -->
     <node machine="dylan-pi3" name="rplidarNode"  pkg="rplidar_ros"  type="rplidarNode"  output="screen">
