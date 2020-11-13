@@ -2,14 +2,9 @@
 
 <launch>
 
-    <include file="sensors.launch">
-        <arg name="imu_serial_port"     value="/dev/ttyUSB0"/>
-        <arg name="lidar_serial_port"   value="/dev/rplidar"/>
-    </include>
-
-    <!-- Static frame (base -> scan) -->
+    <!-- Static frame (base -> laser) -->
     <!-- For my robot, the laser scanner is 3 cm in front of the imu using this coordinate frame: https://raw.githubusercontent.com/robopeak/rplidar_ros/master/rplidar_A1.png -->
-    <node pkg="tf" type="static_transform_publisher" name="base_scan_broadcaster" args="-0.03 0 0 0 0 0 base scan 100"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_laser_broadcaster" args="-0.03 0 0 0 0 0 base laser 100"/>
 
     <!-- Static frame (base -> imu) -->
     <!-- For my robot, the imu scanner is rotated 90 degrees counterclockwise from this frame: https://raw.githubusercontent.com/robopeak/rplidar_ros/master/rplidar_A1.png -->
@@ -23,8 +18,10 @@
         <param name="use_odom"              value="false"/>
         <param name="use_vel"               value="false"/>
         <param name="publish_tf"            value="true"/>
-        <param name="publish_pose"          value="false"/>
+        <param name="publish_pose"          value="true"/>
         <param name="publish_pose_stamped"  value="false"/>
     </node>
+
+    <!-- Manually start robot/sensors.launch on raspberry pi -->
 
 </launch>
