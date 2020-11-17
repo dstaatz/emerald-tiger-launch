@@ -1,0 +1,20 @@
+<!-- Copyright (C) 2020 Dylan Staatz - All Rights Reserved. -->
+
+<launch>
+
+    <!-- Setup odometry sources first -->
+    <include file="odom.launch"/>
+
+    <!-- SLAM mapping -->
+    <node pkg="slam_toolbox" type="sync_slam_toolbox_node" name="slam_toolbox" output="screen">
+        <rosparam command="load" file="./slam_localization_params.yaml" />
+    </node>
+
+    <!-- Use mapping setup to launch rviz-->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d mapping.rviz"/>
+
+    <!-- Manually start tiger-car-ros on raspberry pi -->
+    <!-- Manually start tiger-controller-ros on laptop -->
+
+</launch>
+

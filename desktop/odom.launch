@@ -18,8 +18,10 @@
         <param name="use_odom"              value="false"/>
         <param name="use_vel"               value="false"/>
         <param name="publish_tf"            value="true"/>
-        <param name="publish_pose"          value="true"/>
+        <param name="publish_pose"          value="false"/>
         <param name="publish_pose_stamped"  value="false"/>
+
+        <!-- <remap from="pose2D" to="laser_scan_matcher/pose2D"/> -->
     </node>
 
     <!-- Manually start robot/sensors.launch on raspberry pi -->
