@@ -1,0 +1,19 @@
+<!-- Copyright (C) 2020 Dylan Staatz - All Rights Reserved. -->
+
+<launch>
+
+    <arg name="imu_serial_port" default="/dev/ttyUSB0"/>
+
+    <!-- Reading imu data from bno055 through serial -->
+    <node pkg="ros_imu_bno055" type="imu_ros.py" name="ros_imu_bno055_node" output="screen">
+        <param name="serial_port" value="$(arg imu_serial_port)"/>
+        <param name="frame_id" value="imu"/>
+        <param name="operation_mode" value="IMU"/>
+        <param name="oscillator" value="EXTERNAL"/>
+        <param name="reset_orientation" value = "true"/>
+        <param name="frequency" value="50"/>
+        <param name="use_magnetometer" value="false"/>    
+        <param name="use_temperature" value="false"/>    
+    </node>
+
+</launch>
