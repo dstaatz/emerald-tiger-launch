@@ -14,7 +14,7 @@ scan_topic: /scan
 mode: localization
 
 # if you'd like to start localizing on bringup in a map and pose
-map_file_name: serialized_map_4
+map_file_name: room_map
 map_start_pose: [0.0, 0.0, 0.0]
 
 debug_logging: false

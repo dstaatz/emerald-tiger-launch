@@ -12,7 +12,7 @@
 
     <!-- Static frame (base -> base_front) -->
     <!-- The front of the car used for steering control -->
-    <node pkg="tf" type="static_transform_publisher" name="base_front_broadcaster" args="-0.18 0 0 0 0 0 base base_front 100"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_front_broadcaster" args="-0.14 0 0 0 0 0 base base_front 100"/>
 
     <!-- Combines scans and imu data to form (odom -> base) frame -->
     <node pkg="laser_scan_matcher" type="laser_scan_matcher_node" name="laser_scan_matcher_node" output="screen">
